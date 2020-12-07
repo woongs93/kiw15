@@ -32,18 +32,18 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO 여기서 모든것을 처리한다.
+		// TODO �뿬湲곗꽌 紐⑤뱺寃껋쓣 泥섎━�븳�떎.
 		request.setCharacterEncoding("utf-8");
 		MemberVo vo= new MemberVo();
 		MemberDao dao= new MemberDao();
-		HttpSession session = request.getSession(false); //세션객체를 가져온다.
+		HttpSession session = request.getSession(false); //�꽭�뀡媛앹껜瑜� 媛��졇�삩�떎.
 		
-		vo.setMemberId(request.getParameter("id"));
+		vo.setMemberId(request.getParameter("mid"));
 		vo.setPassword(request.getParameter("password"));
 		
 		vo= dao.memberLoginCheck(vo);
 		System.out.println(vo.getMemberAuth());
-		if(vo.getMemberAuth() != "") {
+		if(vo.getMemberAuth() != null) {
 			
 			session.setAttribute("id", vo.getMemberId());
 			session.setAttribute("auth", vo.getMemberAuth());

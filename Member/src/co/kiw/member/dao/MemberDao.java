@@ -19,7 +19,7 @@ public class MemberDao {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 	
-	//이 부분 sql 작성
+	//�씠 遺�遺� sql �옉�꽦
 	private final String MEMBERLOGIN = "SELECT * FROM MEMBER WHERE MEMBERID = ? AND PASSWORD = ?";
 	private final String INSERT="INSERT INTO MEMBER VALUES(?, ?, ?, 'user', 0)";
 
@@ -29,7 +29,7 @@ public class MemberDao {
 			conn= DriverManager.getConnection(url, user, password);
 			
 		} catch(ClassNotFoundException | SQLException e) {
-			System.out.println("DB 연결실패 ㅠㅠ");
+			System.out.println("DB �뿰寃곗떎�뙣 �뀪�뀪");
 		}
 	}
 	
@@ -76,8 +76,8 @@ public class MemberDao {
 		try {
 			psmt= conn.prepareStatement(INSERT);
 			psmt.setString(1, vo.getMemberId());
-			psmt.setString(1, vo.getMemberName());
-			psmt.setString(1, vo.getPassword());
+			psmt.setString(2, vo.getMemberName());
+			psmt.setString(3, vo.getPassword());
 			n =psmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

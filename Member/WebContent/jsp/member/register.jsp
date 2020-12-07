@@ -40,7 +40,7 @@
 				</tr>
 			</table>
 			<div>
-				<input type="submit" value="회원가입">
+				<input type="submit" onclick="check()" value="회원가입">
 			</div>
 		</form>
 	</div>
